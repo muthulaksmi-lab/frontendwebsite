@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Nova Studio is a modern responsive one-page website template with services, portfolio, testimonials, and a validated contact form."
+  />
+  <title>Nova Studio | Modern Creative Agency</title>
+  <style>
+    :root {
+      --bg: #081120;
+      --bg-soft: #101b31;
+      --surface: rgba(255, 255, 255, 0.08);
+      --surface-strong: rgba(255, 255, 255, 0.12);
+      --text: #e8f0ff;
+      --muted: #a5b4d4;
+      --primary: #62d0ff;
+      --secondary: #8b5cf6;
+      --accent: #22c55e;
+      --shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+      --radius: 22px;
+      --container: min(1120px, calc(100% - 2rem));
+      --transition: 0.35s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(98, 208, 255, 0.25), transparent 30%),
+        radial-gradient(circle at top right, rgba(139, 92, 246, 0.2), transparent 28%),
+        linear-gradient(145deg, #050b16 0%, #0b1324 45%, #101a31 100%);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      border-radius: 18px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    section {
+      padding: 5.5rem 0;
+    }
+
+    .container {
+      width: var(--container);
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      max-width: 680px;
+      margin-bottom: 2.5rem;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(98, 208, 255, 0.12);
+      color: var(--primary);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    h1, h2, h3, h4 {
+      line-height: 1.15;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 6vw, 5.4rem);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-bottom: 1rem;
+    }
+
+    p.section-text,
+    .muted {
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.95rem 1.5rem;
+      border: 0;
+      border-radius: 999px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary {
+      color: #06101d;
+      background: linear-gradient(135deg, var(--primary), #8df2ff);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: none;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-3px) scale(1.01);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      box-shadow: 0 18px 40px rgba(98, 208, 255, 0.35);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: background var(--transition), box-shadow var(--transition), backdrop-filter var(--transition);
+    }
+
+    .site-header.scrolled {
+      background: rgba(7, 14, 28, 0.82);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+    }
+
+    .nav-wrap {
+      width: var(--container);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.03em;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      box-shadow: 0 12px 30px rgba(98, 208, 255, 0.22);
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-weight: 600;
+      transition: color var(--transition);
+    }
+
+    nav a:hover,
+    nav a:focus-visible,
+    nav a.active {
+      color: var(--text);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 12px;
+      padding: 0.75rem;
+      cursor: pointer;
+    }
+
+    .hero {
+      padding-top: 2rem;
+    }
+
+    .hero-grid,
+    .about-grid,
+    .contact-grid {
+      display: grid;
+      gap: 2rem;
+      align-items: center;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero-copy p {
+      max-width: 620px;
+      margin-bottom: 2rem;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .stat-card,
+    .glass-card,
+    .service-card,
+    .portfolio-card,
+    .testimonial-card,
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(14px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .stat-card {
+      padding: 1.2rem;
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: 1.7rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 540px;
+      display: grid;
+      place-items: center;
+    }
+
+    .hero-panel {
+      width: min(100%, 500px);
+      padding: 1.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(98, 208, 255, 0.16), rgba(139, 92, 246, 0.14));
+      pointer-events: none;
+    }
+
+    .dashboard {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .dashboard-top,
+    .dashboard-bottom {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .dashboard-top {
+      grid-template-columns: 1.5fr 1fr;
+    }
+
+    .mini-card {
+      padding: 1.25rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      min-height: 140px;
+    }
+
+    .bars {
+      display: flex;
+      align-items: end;
+      gap: 0.6rem;
+      height: 120px;
+      margin-top: 1rem;
+    }
+
+    .bars span {
+      flex: 1;
+      border-radius: 999px 999px 0 0;
+      background: linear-gradient(180deg, var(--primary), var(--secondary));
+      animation: rise 1.6s ease forwards;
+      transform-origin: bottom;
+    }
+
+    .float-badge {
+      position: absolute;
+      padding: 0.9rem 1rem;
+      background: rgba(7, 14, 28, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      animation: float 4.6s ease-in-out infinite;
+    }
+
+    .float-badge.top {
+      top: 2rem;
+      right: 1rem;
+    }
+
+    .float-badge.bottom {
+      bottom: 2rem;
+      left: 0;
+      animation-delay: -2s;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-visual img {
+      min-height: 460px;
+      object-fit: cover;
+      box-shadow: var(--shadow);
+    }
+
+    .experience-tag {
+      position: absolute;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      padding: 1rem 1.2rem;
+      border-radius: 18px;
+      background: rgba(7, 14, 28, 0.84);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .check-list {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.6rem;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: start;
+      gap: 0.9rem;
+      color: var(--muted);
+    }
+
+    .check-list span {
+      width: 28px;
+      height: 28px;
+      flex: 0 0 28px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(34, 197, 94, 0.14);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .services-grid,
+    .portfolio-grid,
+    .testimonials-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .service-card,
+    .testimonial-card,
+    .contact-card {
+      padding: 1.6rem;
+      transition: transform var(--transition), border-color var(--transition), background var(--transition);
+    }
+
+    .service-card:hover,
+    .testimonial-card:hover,
+    .portfolio-card:hover,
+    .contact-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(98, 208, 255, 0.24);
+      background: rgba(255, 255, 255, 0.11);
+    }
+
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1.1rem;
+      background: linear-gradient(135deg, rgba(98, 208, 255, 0.18), rgba(139, 92, 246, 0.2));
+      font-size: 1.45rem;
+    }
+
+    .service-card p,
+    .testimonial-card p,
+    .contact-copy p {
+      color: var(--muted);
+    }
+
+    .portfolio-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .portfolio-card {
+      overflow: hidden;
+      position: relative;
+      min-height: 300px;
+      isolation: isolate;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .portfolio-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .portfolio-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .portfolio-card figcaption {
+      position: absolute;
+      inset: auto 1rem 1rem 1rem;
+      padding: 1rem;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(7, 14, 28, 0.15), rgba(7, 14, 28, 0.94));
+      color: var(--text);
+    }
+
+    .testimonials-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .testimonial-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.95rem;
+      margin-top: 1.4rem;
+    }
+
+    .avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+    }
+
+    .contact-grid {
+      align-items: start;
+    }
+
+    .contact-card form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.95rem 1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      font: inherit;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: rgba(98, 208, 255, 0.45);
+      box-shadow: 0 0 0 4px rgba(98, 208, 255, 0.1);
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .error {
+      color: #ff9ba6;
+      font-size: 0.9rem;
+      min-height: 1.1rem;
+    }
+
+    .form-status {
+      min-height: 1.4rem;
+      font-weight: 600;
+    }
+
+    .form-status.success {
+      color: #8cf4b0;
+    }
+
+    .form-status.error {
+      color: #ffb2ba;
+    }
+
+    .contact-details {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .detail-item {
+      display: flex;
+      gap: 0.9rem;
+      align-items: start;
+      padding: 1rem;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .site-footer {
+      padding: 1.6rem 0 2.5rem;
+    }
+
+    .footer-wrap {
+      width: var(--container);
+      margin: 0 auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .social-links a {
+      padding: 0.7rem 0.95rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+      transition: background var(--transition), color var(--transition), transform var(--transition);
+    }
+
+    .social-links a:hover,
+    .social-links a:focus-visible {
+      background: rgba(98, 208, 255, 0.18);
+      color: var(--text);
+      transform: translateY(-2px);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes rise {
+      from { transform: scaleY(0.25); opacity: 0.4; }
+      to { transform: scaleY(1); opacity: 1; }
+    }
+
+    @media (max-width: 1080px) {
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .portfolio-grid,
+      .testimonials-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 860px) {
+      nav {
+        position: fixed;
+        inset: 84px 1rem auto 1rem;
+        background: rgba(7, 14, 28, 0.96);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        padding: 1rem;
+        transform: scale(0.97);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+      }
+
+      nav.open {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .contact-grid,
+      .services-grid,
+      .portfolio-grid,
+      .testimonials-grid,
+      .dashboard-top,
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: auto;
+      }
+
+      .about-visual img {
+        min-height: 320px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      section {
+        padding: 4rem 0;
+      }
+
+      .nav-wrap {
+        padding: 0.85rem 0;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .float-badge {
+        position: static;
+        animation: none;
+      }
+
+      .hero-panel {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .experience-tag {
+        position: static;
+        margin-top: 1rem;
+      }
+
+      .footer-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Sticky header with responsive navigation -->
+  <header class="site-header" id="header">
+    <div class="nav-wrap">
+      <a href="#hero" class="logo" aria-label="Nova Studio home">
+        <span class="logo-mark">N</span>
+        <span>Nova Studio</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Toggle navigation">
+        ☰
+      </button>
+
+      <nav id="siteNav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+          <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero section -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Creative Digital Agency</span>
+          <h1>We design websites that turn first impressions into lasting growth.</h1>
+          <p>
+            Nova Studio helps modern brands stand out with responsive design, bold storytelling,
+            and conversion-focused digital experiences tailored for every screen.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact" id="startProjectBtn">Start Your Project</a>
+            <button class="btn btn-secondary" type="button" id="learnMoreBtn">See Our Process</button>
+          </div>
+          <div class="hero-stats">
+            <article class="stat-card">
+              <strong>120+</strong>
+              <span class="muted">Projects delivered worldwide</span>
+            </article>
+            <article class="stat-card">
+              <strong>98%</strong>
+              <span class="muted">Client satisfaction rate</span>
+            </article>
+            <article class="stat-card">
+              <strong>24/7</strong>
+              <span class="muted">Support for growing brands</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="hero-panel glass-card">
+            <div class="dashboard">
+              <div class="dashboard-top">
+                <div class="mini-card">
+                  <small class="muted">Growth overview</small>
+                  <div class="bars" aria-hidden="true">
+                    <span style="height: 42%"></span>
+                    <span style="height: 58%"></span>
+                    <span style="height: 76%"></span>
+                    <span style="height: 90%"></span>
+                  </div>
+                </div>
+                <div class="mini-card">
+                  <small class="muted">Campaign uplift</small>
+                  <h3 style="font-size: 2.5rem; margin-top: 1rem;">+214%</h3>
+                  <p class="muted">Average engagement after redesign</p>
+                </div>
+              </div>
+              <div class="dashboard-bottom mini-card">
+                <small class="muted">Performance snapshot</small>
+                <h3>Fast, elegant, and conversion-ready experiences.</h3>
+                <p class="muted">Blending UI strategy, motion, content, and accessibility in one seamless workflow.</p>
+              </div>
+            </div>
+          </div>
+          <div class="float-badge top">
+            <strong>New launch</strong>
+            <p class="muted">Responsive UI in 3 weeks</p>
+          </div>
+          <div class="float-badge bottom">
+            <strong>Trusted by startups</strong>
+            <p class="muted">Branding • Web • Strategy</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About section -->
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-visual reveal">
+          <img
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80"
+            alt="Creative team collaborating in a modern workspace"
+          />
+          <div class="experience-tag">
+            <strong>8+ Years</strong>
+            <p class="muted">Crafting memorable digital products</p>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <span class="eyebrow">About Us</span>
+          <h2>Human-centered design for ambitious brands.</h2>
+          <p class="section-text">
+            We partner with founders, agencies, and businesses to build premium online experiences that feel effortless,
+            look beautiful, and perform brilliantly. Every project blends strategic thinking with a strong eye for detail.
+          </p>
+          <ul class="check-list">
+            <li><span>✓</span> Strategy-first process aligned with measurable business goals.</li>
+            <li><span>✓</span> Responsive, accessible interfaces across mobile, tablet, and desktop.</li>
+            <li><span>✓</span> Collaborative execution with transparent timelines and feedback loops.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services section -->
+    <section id="services">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Services</span>
+          <h2>Everything you need to launch a standout digital presence.</h2>
+          <p class="section-text">From concept to conversion, we create polished experiences that connect design with outcomes.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-icon">✦</div>
+            <h3>Brand Identity</h3>
+            <p>Build a memorable visual language with clear positioning, compelling messaging, and modern brand assets.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon">⌘</div>
+            <h3>Web Design</h3>
+            <p>Responsive layouts, thoughtful interactions, and intuitive user journeys designed to engage and convert.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon">⚡</div>
+            <h3>Front-End Build</h3>
+            <p>Performance-focused implementation using clean, maintainable code and smooth animations.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon">◎</div>
+            <h3>Growth Support</h3>
+            <p>Ongoing optimization, analytics insights, and iteration support to keep your digital presence evolving.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio section -->
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Portfolio</span>
+          <h2>Selected work shaped for impact and clarity.</h2>
+          <p class="section-text">A quick look at interfaces and campaigns crafted to elevate brands across industries.</p>
+        </div>
+
+        <div class="portfolio-grid">
+          <figure class="portfolio-card reveal">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80" alt="Laptop displaying a clean product dashboard" />
+            <figcaption>
+              <strong>SaaS Analytics Platform</strong>
+              <p>Dashboard redesign with improved usability and faster onboarding.</p>
+            </figcaption>
+          </figure>
+          <figure class="portfolio-card reveal">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" alt="Team reviewing marketing performance charts" />
+            <figcaption>
+              <strong>Marketing Campaign Hub</strong>
+              <p>Data storytelling visuals for stronger campaign reporting.</p>
+            </figcaption>
+          </figure>
+          <figure class="portfolio-card reveal">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Designer sketching a wireframe on a tablet" />
+            <figcaption>
+              <strong>Startup Launch Experience</strong>
+              <p>Landing page and product showcase built for early traction.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials section -->
+    <section id="testimonials">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Testimonials</span>
+          <h2>What our clients say about working with Nova Studio.</h2>
+          <p class="section-text">Trusted by teams that care about speed, quality, and thoughtful collaboration.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <article class="testimonial-card reveal">
+            <p>“Nova Studio transformed our online presence into something premium, intuitive, and genuinely conversion-focused.”</p>
+            <div class="testimonial-meta">
+              <div class="avatar">AL</div>
+              <div>
+                <strong>Alicia Lane</strong>
+                <div class="muted">Founder, BrightScale</div>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card reveal">
+            <p>“The process was smooth from start to finish. Every detail felt intentional, and the final result exceeded expectations.”</p>
+            <div class="testimonial-meta">
+              <div class="avatar">MR</div>
+              <div>
+                <strong>Marcus Reed</strong>
+                <div class="muted">Marketing Lead, Orbit Labs</div>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card reveal">
+            <p>“We needed something modern and responsive fast. Nova delivered a polished experience that our users immediately loved.”</p>
+            <div class="testimonial-meta">
+              <div class="avatar">SK</div>
+              <div>
+                <strong>Sophia Kim</strong>
+                <div class="muted">Product Manager, Elevate</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact section -->
+    <section id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <span class="eyebrow">Contact</span>
+          <h2>Let’s build something exceptional together.</h2>
+          <p>
+            Tell us about your idea, timeline, and goals. We’ll get back to you with a clear next step and a thoughtful plan.
+          </p>
+          <div class="contact-details">
+            <div class="detail-item">
+              <div class="service-icon">✉</div>
+              <div>
+                <strong>Email us</strong>
+                <p>hello@novastudio.dev</p>
+              </div>
+            </div>
+            <div class="detail-item">
+              <div class="service-icon">☎</div>
+              <div>
+                <strong>Call us</strong>
+                <p>+1 (555) 482-1936</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-card reveal">
+          <form id="contactForm" novalidate>
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your full name" />
+              <div class="error" id="nameError"></div>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" />
+              <div class="error" id="emailError"></div>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us about your project"></textarea>
+              <div class="error" id="messageError"></div>
+            </div>
+            <button class="btn btn-primary" type="submit">Send Message</button>
+            <div class="form-status" id="formStatus" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer with social links -->
+  <footer class="site-footer">
+    <div class="footer-wrap">
+      <p class="muted">© 2026 Nova Studio. Built for modern brands with thoughtful design.</p>
+      <div class="social-links">
+        <a href="https://dribbble.com" target="_blank" rel="noreferrer">Dribbble</a>
+        <a href="https://behance.net" target="_blank" rel="noreferrer">Behance</a>
+        <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Cached UI elements
+    const header = document.getElementById('header');
+    const menuToggle = document.getElementById('menuToggle');
+    const siteNav = document.getElementById('siteNav');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const revealItems = document.querySelectorAll('.reveal');
+    const learnMoreBtn = document.getElementById('learnMoreBtn');
+    const startProjectBtn = document.getElementById('startProjectBtn');
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    // Add scroll background effect to the header
+    const updateHeaderState = () => {
+      header.classList.toggle('scrolled', window.scrollY > 24);
+    };
+
+    updateHeaderState();
+    window.addEventListener('scroll', updateHeaderState);
+
+    // Mobile menu toggle
+    menuToggle.addEventListener('click', () => {
+      const isOpen = siteNav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        siteNav.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Scroll-based active nav highlighting
+    const sections = [...document.querySelectorAll('main section')];
+    const updateActiveLink = () => {
+      const currentSection = sections.find((section) => {
+        const rect = section.getBoundingClientRect();
+        return rect.top <= 160 && rect.bottom >= 160;
+      });
+
+      if (!currentSection) return;
+
+      navLinks.forEach((link) => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${currentSection.id}`);
+      });
+    };
+
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
+
+    // CTA interactions
+    learnMoreBtn.addEventListener('click', () => {
+      document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+      learnMoreBtn.textContent = 'Exploring Services...';
+      setTimeout(() => {
+        learnMoreBtn.textContent = 'See Our Process';
+      }, 1800);
+    });
+
+    startProjectBtn.addEventListener('click', () => {
+      startProjectBtn.textContent = 'Let’s Talk';
+      setTimeout(() => {
+        startProjectBtn.textContent = 'Start Your Project';
+      }, 1800);
+    });
+
+    // Reveal animation on scroll
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.18 }
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+
+    // Form validation helpers
+    const validators = {
+      name: (value) => value.trim().length >= 2 ? '' : 'Please enter at least 2 characters.',
+      email: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()) ? '' : 'Please enter a valid email address.',
+      message: (value) => value.trim().length >= 12 ? '' : 'Message should be at least 12 characters long.'
+    };
+
+    const setError = (field, message) => {
+      document.getElementById(`${field}Error`).textContent = message;
+    };
+
+    const validateField = (field, value) => {
+      const errorMessage = validators[field](value);
+      setError(field, errorMessage);
+      return !errorMessage;
+    };
+
+    ['name', 'email', 'message'].forEach((field) => {
+      const input = document.getElementById(field);
+      input.addEventListener('input', () => validateField(field, input.value));
+    });
+
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value
+      };
+
+      const isValid = Object.entries(formData)
+        .map(([field, value]) => validateField(field, value))
+        .every(Boolean);
+
+      formStatus.className = 'form-status';
+
+      if (!isValid) {
+        formStatus.textContent = 'Please correct the highlighted fields before sending.';
+        formStatus.classList.add('error');
+        return;
+      }
+
+      formStatus.textContent = 'Message sent successfully! We will reach out soon.';
+      formStatus.classList.add('success');
+      contactForm.reset();
+    });
+  </script>
+</body>
+</html>
